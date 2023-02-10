@@ -50,7 +50,6 @@ class Quiz:
     def clear_options(self):
         for btn in self.opts:
             btn['text'] = ""
-        # Update the GUI to reflect the change
         gui.update()
 
     def buttons(self):
