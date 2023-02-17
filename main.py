@@ -12,9 +12,8 @@ class Quiz:
         self.q_no = 0
         self.display_title()
         self.display_question()
-        self.opt_selected = IntVar()
-        self.opts = self.radio_buttons()
-        self.display_options()
+        self.opt_selected = StringVar()  # Add this line
+        self.display_choices()
         self.buttons()
         self.data_size = len(question)
         self.correct = 0
@@ -26,31 +25,18 @@ class Quiz:
     def next_btn(self):
         if self.check_ans(self.q_no):
             self.correct += 1
-            self.q_no += 1
 
-        else:
-            if self.q_no == 3:
-                self.q_no -= 3
-            elif self.q_no == 2:
-                self.q_no -= 2
-            elif self.q_no == 1:
-                self.q_no -= 1
-            elif self.q_no == 0:
-                self.q_no += 0
-            else:
-                self.q_no -= 1
-
+        self.q_no += 1
         if self.q_no == self.data_size:
             gui.destroy()
         else:
             self.clear_options()
             self.display_question()
-            self.display_options()
+            self.display_choices()
 
     def clear_options(self):
-        for btn in self.opts:
-            btn['text'] = ""
-        gui.update()
+        for child in self.choice_frame.winfo_children():
+            child.destroy()
 
     def buttons(self):
         next_button = Button(gui,
@@ -72,12 +58,17 @@ class Quiz:
 
         quit_button.place(x=700, y=50)
 
-
-    def display_options(self):
+    def display_choices(self):
+        self.choice_frame = Frame(gui)
+        self.choice_frame.place(x=100, y=150)
         val = 0
-        self.opt_selected.set(0)
         for option in options[self.q_no]:
-            self.opts[val]['text'] = option
+            radio_btn = Radiobutton(self.choice_frame,
+                                    text=option,
+                                    variable=self.opt_selected,
+                                    value=option,
+                                    font=("ariel", 14))
+            radio_btn.pack(side="top", anchor="w")
             val += 1
             gui.update()
             qtts = gTTS(option)
@@ -86,13 +77,14 @@ class Quiz:
             time.sleep(1)
 
     def display_question(self):
-        q_no = Label(gui,
+        self.question_frame = Frame(gui)
+        self.question_frame.place(x=70, y=100)
+        q_no = Label(self.question_frame,
                      text=question[self.q_no],
                      width=60,
                      font=('ariel', 16, 'bold'),
                      anchor='w')
-
-        q_no.place(x=70, y=100)
+        q_no.pack()
         gui.update()
         tts = gTTS(question[self.q_no])
         tts.save('question.mp3')
@@ -100,31 +92,21 @@ class Quiz:
 
     def display_title(self):
         title = Label(gui,
-                      text="GeeksforGeeks QUIZ",
+                      text="English 2600",
                       width=50,
                       bg="green",
                       fg="white",
                       font=("ariel", 20, "bold"))
         title.place(x=0, y=2)
 
-    def radio_buttons(self):
-        q_list = []
-        y_pos = 150
-        while len(q_list) < 4:
-            radio_btn = Radiobutton(gui,
-                                    text=" ",
-                                    variable=self.opt_selected,
-                                    value=len(q_list) + 1,
-                                    font=("ariel", 14))
-            q_list.append(radio_btn)
-            radio_btn.place(x=100, y=y_pos)
-            y_pos += 40
-        return q_list
+    def run(self):
+        self.display_question()
+        self.display_choices()
 
 
 gui = Tk()
 gui.geometry("800x450")
-gui.title("GeeksforGeeks Quiz")
+gui.title("English 2600")
 with open('data.json') as f:
     data = json.load(f)
 
