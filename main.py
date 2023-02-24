@@ -15,6 +15,8 @@ class Quiz:
         self.opt_selected = StringVar()  # Add this line
         self.display_choices()
         self.buttons()
+        self.choice_vars = []  # Add this line
+
         self.data_size = len(question)
         self.correct = 0
 
@@ -31,12 +33,16 @@ class Quiz:
             gui.destroy()
         else:
             self.clear_options()
+            self.clear_question()
             self.display_question()
             self.display_choices()
 
     def clear_options(self):
         for child in self.choice_frame.winfo_children():
             child.destroy()
+    
+    def clear_question(self):
+        self.question_frame.destroy()
 
     def buttons(self):
         next_button = Button(gui,
@@ -58,46 +64,55 @@ class Quiz:
 
         quit_button.place(x=700, y=50)
 
-    def display_choices(self):
-        self.choice_frame = Frame(gui)
-        self.choice_frame.place(x=100, y=150)
-        val = 0
-        for option in options[self.q_no]:
-            radio_btn = Radiobutton(self.choice_frame,
-                                    text=option,
-                                    variable=self.opt_selected,
-                                    value=option,
-                                    font=("ariel", 14))
-            radio_btn.pack(side="top", anchor="w")
-            val += 1
-            gui.update()
-            qtts = gTTS(option)
-            qtts.save('choices.mp3')
-            playsound.playsound("choices.mp3", False)
-            time.sleep(1)
+        def display_choices(self):
+            self.choice_frame = Frame(gui)
+            self.choice_frame.place(x=100, y=self.question_frame.winfo_y() + self.question_frame.winfo_height() + 20) # Change y coordinate based on question frame position and height
+            self.opt_selected.set("")  # Set value of self.opt_selected to an empty string
+            val = 0
+            for option in options[self.q_no]:
+                radio_btn = Radiobutton(self.choice_frame,
+                                        text=option,
+                                        variable=self.opt_selected,
+                                        value=option,
+                                        font=("ariel", 14))
+                radio_btn.pack(side="top", anchor="w")
+                val += 1
+                gui.update()
+                qtts = gTTS(option)
+                qtts.save('choices.mp3')
+                playsound.playsound("choices.mp3", True)
+
 
     def display_question(self):
         self.question_frame = Frame(gui)
-        self.question_frame.place(x=70, y=100)
+        self.question_frame.place(x=70, y=50)
         q_no = Label(self.question_frame,
-                     text=question[self.q_no],
-                     width=60,
-                     font=('ariel', 16, 'bold'),
-                     anchor='w')
-        q_no.pack()
+                    text=question[self.q_no],
+                    width=60,
+                    font=('ariel', 16, 'bold'),
+                    anchor='center',
+                    wraplength=700,
+                    pady=20)  # Add pady=20 to add padding
+        q_no.pack(side='top', fill='both', expand=True)  # Add fill and expand to center text
         gui.update()
         tts = gTTS(question[self.q_no])
         tts.save('question.mp3')
         playsound.playsound("question.mp3", True)
 
+
+
     def display_title(self):
         title = Label(gui,
-                      text="English 2600",
-                      width=50,
-                      bg="green",
-                      fg="white",
-                      font=("ariel", 20, "bold"))
-        title.place(x=0, y=2)
+              text="English 2600",
+              width=50,
+              bg="green",
+              fg="white",
+              font=("ariel", 20, "bold"),
+              padx=10,
+              pady=10,
+              anchor='center')
+        title.pack()
+
 
     def run(self):
         self.display_question()

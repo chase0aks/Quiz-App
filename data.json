@@ -1,37 +1,220 @@
 {
   "question": [
-    "Q1. What Indian city is the capital of two states?",
-    "Q2. Which city is the capital of India?",
-    "Q3. Smallest State of India?",
-    "Q4. Where is Taj Mahal Located?"
+    "Here is a complete sentence of only two words:\nBirds fly.\nWe know what this sentence is about. It is not about dogs or horses. It is about...",
+    "Birds...\nBirds fly is a sentence, but the word birds by itself is not a...",
+    "The word birds by itself merely names a topic that we might talk about.\nTo make a sentence of it, we must tell something about...",
+    "Birds fly.\nIn this sentence, the word that tells something about birds is...",
+    "Birds fly.\nThis sentence doesn't state that birds eat, sleep, or sing. It tells that birds...",
+    "To tell about something means to make a statement about it.\nBirds fly.\nThe word fly makes a statement about...",
+    "A group of words that both names something and makes a .... about it is a complete sentence.",
+    "Birds fly.\nThis little sentence is like most sentences because it has ... parts: a naming part and a telling part.",
+    "Flowers fade.\nIn this sentence .... is the naming part, and .... is the telling part.",
+    "Glass breaks.\nIn this sentence .... is the naming part, and .... is the telling part.",
+    "Water freezes.\nIn this sentence, water is the .... part, and freezes is the .... part",
+    "A complete sentence usually has how many parts?",
+    "We often use the word subject to mean topic; for example,\n'What subjects (topics) did you discuss?'\nIn grammar, we call the naming part of a sentence the subject because it names the topic that the sentence is about.\nWater freezes\nWater is the ... of this sentence.",
+    "In grammar, we call the telling part of a sentence the predicate.\nWater freezes\nThe predicate of this sentence is ... .",
+    "Predicate is a long word. Let's break it up into three syllables and learn to spell it:\npre-di-cate\nThe third syllable of predicate is ... .",
+    "Iron bends.\nIn this sentence, the subject is ...., and the predicate is .....",
+    "Milk sours.\nIn this sentence, milk is the ...., and sours is the .....",
+    "A sentence usually has two parts.\nThe grammar names for these two parts are subject and ... .",
+    "The predicate makes a statement about the ....",
+    "Wrote.\tTalked.\tMelted.\nEach of these words could be the .... of a sentence.",
+    "Bread.\tPencil\tEngine\nEach of these words could be the .... of a sentence.",
+    "Arrives.\tHenry\nWhich word could be used as the subject of a sentence?",
+    "Elephants.\treturned\nWhich word could be used as the predicate of a sentence?",
+    "Answered..\tvegetables.\tstumbled\nWhich word could be used as a subject?",
+    "Kitchen.\tmoney.\tboiled\nWhich word could be used as a predicated?",
+    "Birds fly.\tWater freezes.\tIron bends.\tMilk sours.\nIn the above sentences, the subject comes .... the predicate.",
+    "In most English sentences, we usually first name what we are talking about; then we make a statement about what we have named.\nMost English sentences begin with the ...",
+    "In analyzing the following sentences, the subject is written in bold, and the predicate is underlined.\nExamples:.\tGrass grows.\tDogs bark.\tIce melts.",
+    "Identify the subject .... and predicate .... in this sentence.\nMosquitoes bite.",
+    "Although all are printed as sentence, only one of the following pairs of words really is a sentence. Select the word pair that is really a sentence.\nCold water.\tBefore noon.\tSnow falls.\tBroken wheel.",
+    "Only one of the following pairs of words is a sentence.\nSelect the word pair that is really a sentence\nBarking dog.\tAlmost five.\tFalling rain.\tGas explodes."
   ],
   "answer": [
     1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
     2,
+    1,
+    1,
     3,
-    2
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    2,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    3,
+    4
   ],
   "options": [
-
-    ["Chandigarh",
-      "Kolkata",
-      "Delhi",
-      "Bangalore"
+    [
+      "Birds",
+      "Fly"
     ],
-    ["Jaipur",
-      "Delhi",
-      "Chennai",
-      "Mumbai"
+    [
+      "Sentence",
+      "Verb",
+      "Clause"
     ],
-    ["Rajasthan",
-      "Punjab",
-      "Goa",
-      "Bihar"
+    [
+      "Birds",
+      "Dogs",
+      "Cats"
     ],
-    ["Lucknow",
-      "Agra",
-      "Bhopal",
-      "Delhi"
+    [
+      "Fly",
+      "Run",
+      "Jump"
+    ],
+    [
+      "Fly",
+      "Eat",
+      "Sing"
+    ],
+    [
+      "Birds",
+      "Dogs",
+      "Hamsters"
+    ],
+    [
+      "Statement",
+      "Naming"
+    ],
+    [
+      "One",
+      "Two",
+      "Three"
+    ],
+    [
+      "Flowers, Fade",
+      "Flowers, Flowers",
+      "Fade, Fade",
+      "Fade, Flowers"
+    ],
+    [
+      "Glass, Breaks",
+      "Glass, Glass",
+      "Breaks, Breaks",
+      "Breaks, Glass"
+    ],
+    [
+      "Naming, Telling",
+      "Naming, Naming",
+      "Telling, Telling",
+      "Telling, Naming"
+    ],
+    [
+      "One",
+      "Two",
+      "Three"
+    ],
+    [
+      "Subject",
+      "Predicate"
+    ],
+    [
+      "Freezes",
+      "Boils",
+      "Water"
+    ],
+    [
+      "Pre",
+      "Di",
+      "Cate"
+    ],
+    [
+      "Iron, Bends",
+      "Iron, Iron",
+      "Bends, Bends",
+      "Bends, Iron"
+    ],
+    [
+      "Subject, Predicate",
+      "Subject, Subject",
+      "Predicate, Predicate",
+      "Predicate, Subject"
+    ],
+    [
+      "Predicate",
+      "Subject",
+      "Naming Part"
+    ],
+    [
+      "Subject",
+      "Telling Part",
+      "World"
+    ],
+    [
+      "Predicate",
+      "Subject"
+    ],
+    [
+      "Subject",
+      "Predicate"
+    ],
+    [
+      "Henry",
+      "Arrives"
+    ],
+    [
+      "Elephants",
+      "Returned"
+    ],
+    [
+      "Vegetables",
+      "Answered",
+      "Stumbled"
+    ],
+    [
+      "Boiled",
+      "Money",
+      "Kitchen"
+    ],
+    [
+      "Before",
+      "After"
+    ],
+    [
+      "Subject",
+      "Predicate"
+    ],
+    [],
+    [
+      "Mosquitoes, Bite",
+      "Mosquitoes, Mosquitoes",
+      "Bite, Bite",
+      "Bite, Mosquitoes"
+    ],
+    [
+      "Cold Water",
+      "Before Noon",
+      "Snow Falls",
+      "Broken Wheel"
+    ],
+    [
+      "Barking Dog",
+      "Almost Five",
+      "Falling Rain",
+      "Gas Explodes"
     ]
   ]
 }
