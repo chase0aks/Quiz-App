@@ -52,8 +52,8 @@ class Quiz:
                              bg="blue",
                              fg="white",
                              font=("ariel", 16, "bold"))
-
         next_button.place(x=350, y=380)
+
         quit_button = Button(gui,
                              text="Quit",
                              command=gui.destroy,
@@ -61,26 +61,25 @@ class Quiz:
                              bg="black",
                              fg="white",
                              font=("ariel", 16, " bold"))
-
         quit_button.place(x=700, y=50)
 
-        def display_choices(self):
-            self.choice_frame = Frame(gui)
-            self.choice_frame.place(x=100, y=self.question_frame.winfo_y(
-            ) + self.question_frame.winfo_height() + 20)
-            self.opt_selected.set("")
-            for option in options[self.q_no]:
-                radio_btn = Radiobutton(self.choice_frame,
-                                        text=option,
-                                        variable=self.opt_selected,
-                                        value=option,
-                                        font=("ariel", 14))
-                radio_btn.pack(side="top", anchor="w")
-                val += 1
-                gui.update()
-                qtts = gTTS(option)
-                qtts.save('choices.mp3')
-                playsound.playsound("choices.mp3", True)
+    def display_choices(self):
+        self.choice_frame = Frame(gui)
+        self.choice_frame.place(x=100, y=self.question_frame.winfo_y() + self.question_frame.winfo_height() + 20)
+        self.opt_selected.set("")
+        val = 0
+        for option in options[self.q_no]:
+            radio_btn = Radiobutton(self.choice_frame,
+                                    text=option,
+                                    variable=self.opt_selected,
+                                    value=option,
+                                    font=("ariel", 14))
+            radio_btn.pack(side="top", anchor="w")
+            val += 1
+            gui.update()
+            qtts = gTTS(option)
+            qtts.save('choices.mp3')
+            playsound.playsound("choices.mp3", True)
 
     def display_question(self):
         self.question_frame = Frame(gui)
@@ -93,6 +92,7 @@ class Quiz:
                      wraplength=700,
                      pady=20)
         q_no.pack(side='top', fill='both', expand=True)
+        gui.update()
         tts = gTTS(question[self.q_no])
         tts.save('question.mp3')
         playsound.playsound("question.mp3", True)
