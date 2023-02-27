@@ -45,30 +45,34 @@ class Quiz:
         self.question_frame.destroy()
 
     def buttons(self):
-        next_button = Button(gui,
+        buttonchoices = Frame(gui)
+        buttonchoices.pack(side=BOTTOM, padx=10, pady=10)
+        next_button = Button(buttonchoices,
                              text="Next",
                              command=self.next_btn,
-                             width=10,
+                             width=5,
                              bg="blue",
                              fg="white",
-                             font=("ariel", 16, "bold"))
-        next_button.place(x=350, y=380)
+                             font=("ariel", 16, "bold")
+                             )
 
-        quit_button = Button(gui,
+        quit_button = Button(buttonchoices,
                              text="Quit",
                              command=gui.destroy,
                              width=5,
                              bg="black",
                              fg="white",
                              font=("ariel", 16, " bold"))
-        quit_button.place(x=700, y=50)
+
+        next_button.pack(side=LEFT)
+        quit_button.pack(side=RIGHT)
 
     def display_choices(self):
         spacer = gTTS("or")
         spacer.save("spacer.mp3")
         self.choice_frame = Frame(gui)
         self.choice_frame.place(x=100, y=self.question_frame.winfo_y(
-        ) + self.question_frame.winfo_height() + 20)
+        ) + self.question_frame.winfo_height() + 10)
         self.opt_selected.set("")
         val = 0
 
@@ -129,7 +133,6 @@ gui.geometry("800x450")
 gui.title("English 2600")
 with open('data.json') as f:
     data = json.load(f)
-
 question = (data['question'])
 options = (data['options'])
 answer = (data['answer'])
