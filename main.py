@@ -64,10 +64,16 @@ class Quiz:
         quit_button.place(x=700, y=50)
 
     def display_choices(self):
+        spacer = gTTS("or")
+        spacer.save("spacer.mp3")
         self.choice_frame = Frame(gui)
         self.choice_frame.place(x=100, y=self.question_frame.winfo_y() + self.question_frame.winfo_height() + 20)
         self.opt_selected.set("")
         val = 0
+
+        header = Label(self.choice_frame, text = "Please Select One Option", font=("ariel", 18))
+        header.pack()
+
         for option in options[self.q_no]:
             radio_btn = Radiobutton(self.choice_frame,
                                     text=option,
@@ -75,11 +81,14 @@ class Quiz:
                                     value=option,
                                     font=("ariel", 14))
             radio_btn.pack(side="top", anchor="w")
-            val += 1
             gui.update()
             qtts = gTTS(option)
             qtts.save('choices.mp3')
             playsound.playsound("choices.mp3", True)
+            if val != len(options[self.q_no]) - 1:
+                playsound.playsound("spacer.mp3", True)
+                val += 1
+            
 
     def display_question(self):
         self.question_frame = Frame(gui)
