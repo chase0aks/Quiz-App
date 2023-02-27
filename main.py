@@ -12,10 +12,10 @@ class Quiz:
         self.q_no = 0
         self.display_title()
         self.display_question()
-        self.opt_selected = StringVar()  # Add this line
+        self.opt_selected = StringVar()
         self.display_choices()
         self.buttons()
-        self.choice_vars = []  # Add this line
+        self.choice_vars = []
 
         self.data_size = len(question)
         self.correct = 0
@@ -40,7 +40,7 @@ class Quiz:
     def clear_options(self):
         for child in self.choice_frame.winfo_children():
             child.destroy()
-    
+
     def clear_question(self):
         self.question_frame.destroy()
 
@@ -66,9 +66,9 @@ class Quiz:
 
         def display_choices(self):
             self.choice_frame = Frame(gui)
-            self.choice_frame.place(x=100, y=self.question_frame.winfo_y() + self.question_frame.winfo_height() + 20) # Change y coordinate based on question frame position and height
-            self.opt_selected.set("")  # Set value of self.opt_selected to an empty string
-            val = 0
+            self.choice_frame.place(x=100, y=self.question_frame.winfo_y(
+            ) + self.question_frame.winfo_height() + 20)
+            self.opt_selected.set("")
             for option in options[self.q_no]:
                 radio_btn = Radiobutton(self.choice_frame,
                                         text=option,
@@ -82,37 +82,32 @@ class Quiz:
                 qtts.save('choices.mp3')
                 playsound.playsound("choices.mp3", True)
 
-
     def display_question(self):
         self.question_frame = Frame(gui)
         self.question_frame.place(x=70, y=50)
         q_no = Label(self.question_frame,
-                    text=question[self.q_no],
-                    width=60,
-                    font=('ariel', 16, 'bold'),
-                    anchor='center',
-                    wraplength=700,
-                    pady=20)  # Add pady=20 to add padding
-        q_no.pack(side='top', fill='both', expand=True)  # Add fill and expand to center text
-        gui.update()
+                     text=question[self.q_no],
+                     width=60,
+                     font=('ariel', 16, 'bold'),
+                     anchor='center',
+                     wraplength=700,
+                     pady=20)
+        q_no.pack(side='top', fill='both', expand=True)
         tts = gTTS(question[self.q_no])
         tts.save('question.mp3')
         playsound.playsound("question.mp3", True)
 
-
-
     def display_title(self):
         title = Label(gui,
-              text="English 2600",
-              width=50,
-              bg="green",
-              fg="white",
-              font=("ariel", 20, "bold"),
-              padx=10,
-              pady=10,
-              anchor='center')
+                      text="English 2600",
+                      width=50,
+                      bg="green",
+                      fg="white",
+                      font=("ariel", 20, "bold"),
+                      padx=10,
+                      pady=10,
+                      anchor='center')
         title.pack()
-
 
     def run(self):
         self.display_question()
