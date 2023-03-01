@@ -10,11 +10,11 @@ class Quiz:
 
     def __init__(self):
         self.q_no = 0
+        self.buttons()
         self.display_title()
         self.display_question()
         self.opt_selected = StringVar()
         self.display_choices()
-        self.buttons()
         self.choice_vars = []
 
         self.data_size = len(question)
@@ -47,9 +47,16 @@ class Quiz:
     def buttons(self):
         buttonchoices = Frame(gui)
         buttonchoices.pack(side=BOTTOM, padx=10, pady=10)
+
+        def validate_choice():
+            if not self.opt_selected.get():
+                mb.showerror("Error", "Please select an option")
+                return False
+            return True
+
         next_button = Button(buttonchoices,
                              text="Next",
-                             command=self.next_btn,
+                             command=lambda: self.next_btn() if validate_choice() else None,
                              width=5,
                              bg="blue",
                              fg="white",
@@ -92,7 +99,7 @@ class Quiz:
             qtts.save('choices.mp3')
             playsound.playsound("choices.mp3", True)
             if val != len(options[self.q_no]) - 1:
-                playsound.playsound("spacer.mp3", True)
+                playsound.playsound("spacer.mp3", False)
                 val += 1
 
     def display_question(self):
@@ -109,7 +116,7 @@ class Quiz:
         gui.update()
         tts = gTTS(question[self.q_no])
         tts.save('question.mp3')
-        playsound.playsound("question.mp3", True)
+        playsound.playsound("question.mp3", False)
 
     def display_title(self):
         title = Label(gui,
