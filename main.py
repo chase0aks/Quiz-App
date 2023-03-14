@@ -99,7 +99,7 @@ class Quiz:
             qtts.save('choices.mp3')
             playsound.playsound("choices.mp3", True)
             if val != len(options[self.q_no]) - 1:
-                playsound.playsound("spacer.mp3", False)
+                playsound.playsound("spacer.mp3", True)
                 val += 1
 
     def display_question(self):
@@ -116,7 +116,7 @@ class Quiz:
         gui.update()
         tts = gTTS(question[self.q_no])
         tts.save('question.mp3')
-        playsound.playsound("question.mp3", False)
+        playsound.playsound("question.mp3", True)
 
     def display_title(self):
         title = Label(gui,
